@@ -1,18 +1,7 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="popup.css">
-    </head>
-    <body>
-        <h1>Hello!</h1>
-    </body>
-    <script src="popup.js"></script>
-</html> 
-
-
 <!DOCTYPE html>
-<html lang="en"> //determines language of the popup (English)
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />  //unicode characters
+    <meta charset="UTF-8" />  
     <link rel="stylesheet" href="popup.css" />  
   </head>
   <body>
@@ -26,7 +15,28 @@
 
     <!-- Tab 1: Individual Assignment -->
     <div class="tab-content" id="individual-tab">
+        <!-- individual assignment content -->
 
+        <select id="IA_document_dropdown" placeholder="Select Document">
+          <!-- temporary until we figure out doc selection -->
+          <option value="">-- Select Document --</option>
+          <option value="doc1">Document 1</option>
+          <option value="doc2">Document 2</option>
+        </select>
+        <!-- selecting course-->
+         <select id="IA_course_dropdown" placeholder="Select Course">
+          <option value="">-- Select Course --</option>
+          <option value="course1">Course 1</option>
+          <option value="course2">Course 2</option>
+        </select>
+        <!-- selecting due date and time -->
+        <input id="IA_due_date" type="date" placeholder="Due Date" />
+        <input id="IA_time_due" type="time" placeholder="Time Due" />
+        <!-- assignment name and description -->
+        <input id="IA_assignment_name" placeholder="Assignment Name" />
+        <input id="IA_assignment_description" placeholder="Assignment Description" />
+        <!-- submit button -->
+        <button id="IA_submit_btn">Add Assignment</button>
     </div>
 
     <!-- Tab 2: Full Syllabus -->
