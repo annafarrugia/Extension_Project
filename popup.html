@@ -8,12 +8,15 @@
 
     <!-- Tab Buttons -->
     <div id="tab-buttons">
+      <!-- When Individual Assignment is clicked, hides full syllabus and notifications tabs -->
       <button class="tab-btn" onclick=" document.getElementById('individual-tab').style.display = 'block'; 
         document.getElementById('syllabus-tab').style.display = 'none'; 
         document.getElementById('notifs-tab').style.display = 'none';">Individual Assignment</button>
+      <!-- When Full Syllabus is clicked, hides individual assignment and notifications tabs -->
       <button class="tab-btn" onclick=" document.getElementById('syllabus-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
         document.getElementById('notifs-tab').style.display = 'none';">Full Syllabus</button>
+      <!-- When Notifications is clicked, hides individual assignment and full syllabus tabs -->
       <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
         document.getElementById('syllabus-tab').style.display = 'none';">Notifs</button> 
@@ -78,6 +81,7 @@
       <!-- Exam Notifs-->
       <p>Exam Notifications</p>
       <input id="exam_toggle" type="checkbox" />
+
     </div>
 
     <script src="popup.js"></script>
