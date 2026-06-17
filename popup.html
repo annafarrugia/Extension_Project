@@ -19,15 +19,17 @@
       <!-- When Notifications is clicked, hides individual assignment and full syllabus tabs -->
       <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
-        document.getElementById('syllabus-tab').style.display = 'none';">Notifs</button> 
-      
+        document.getElementById('syllabus-tab').style.display = 'none';
+        this.style.backgroundColor = 'var(--tab-color-active)';
+        document.getElementById('btn-syllabus').style.backgroundColor = 'var(--tab-color)';
+        document.getElementById('btn-notifs').style.backgroundColor = 'var(--tab-color)';">Notifs</button> 
     </div>
 
     <!-- Tab 1: Individual Assignment -->
     <div class="tab-content" id="individual-tab">
         <!-- individual assignment content -->
 
-        <select id="IA_document_dropdown" placeholder="Select Document">
+        <select id="IA_document_dropdown" placeholder="Select Document" class= "document-selection">
           <!-- temporary until we figure out doc selection -->
           <option value="">-- Select Document --</option>
           <option value="doc1">Document 1</option>
