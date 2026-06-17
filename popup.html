@@ -8,12 +8,15 @@
 
     <!-- Tab Buttons -->
     <div id="tab-buttons">
+      <!-- When Individual Assignment is clicked, hides full syllabus and notifications tabs -->
       <button class="tab-btn" onclick=" document.getElementById('individual-tab').style.display = 'block'; 
         document.getElementById('syllabus-tab').style.display = 'none'; 
         document.getElementById('notifs-tab').style.display = 'none';">Individual Assignment</button>
+      <!-- When Full Syllabus is clicked, hides individual assignment and notifications tabs -->
       <button class="tab-btn" onclick=" document.getElementById('syllabus-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
         document.getElementById('notifs-tab').style.display = 'none';">Full Syllabus</button>
+      <!-- When Notifications is clicked, hides individual assignment and full syllabus tabs -->
       <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
         document.getElementById('syllabus-tab').style.display = 'none';">Notifs</button> 
@@ -63,6 +66,21 @@
 
     <!-- Tab 3: Notifs -->
     <div class="tab-content" id="notifs-tab">
+      <!-- Email Notifs-->
+      <p>Email Notifications</p>
+      <input id="notif_toggle" type="checkbox" />
+
+      <!-- Popup Notifs-->
+      <p>Computer Popup Notifs</p>
+      <input id="popup_toggle" type="checkbox" />
+
+      <!-- 30 min Before Due-Date Popup Notifs-->
+      <p>30 min Before Due-Date Popup</p>
+      <input id="30min_toggle" type="checkbox" />
+
+      <!-- Exam Notifs-->
+      <p>Exam Notifications</p>
+      <input id="exam_toggle" type="checkbox" />
 
     </div>
 
