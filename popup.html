@@ -8,9 +8,16 @@
 
     <!-- Tab Buttons -->
     <div id="tab-buttons">
-      <button class="tab-btn">Individual Assignment</button>
-      <button class="tab-btn">Full Syllabus</button>
-      <button class="tab-btn">Notifs</button>
+      <button class="tab-btn" onclick=" document.getElementById('individual-tab').style.display = 'block'; 
+        document.getElementById('syllabus-tab').style.display = 'none'; 
+        document.getElementById('notifs-tab').style.display = 'none';">Individual Assignment</button>
+      <button class="tab-btn" onclick=" document.getElementById('syllabus-tab').style.display = 'block'; 
+        document.getElementById('individual-tab').style.display = 'none'; 
+        document.getElementById('notifs-tab').style.display = 'none';">Full Syllabus</button>
+      <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
+        document.getElementById('individual-tab').style.display = 'none'; 
+        document.getElementById('syllabus-tab').style.display = 'none';">Notifs</button> 
+      
     </div>
 
     <!-- Tab 1: Individual Assignment -->
@@ -24,14 +31,14 @@
           <option value="doc2">Document 2</option>
         </select>
         <!-- selecting course-->
-         <select id="IA_course_dropdown" placeholder="Select Course">
+         <select id="IA_course_dropdown" placeholder="Select Course" class="course-details">
           <option value="">-- Select Course --</option>
           <option value="course1">Course 1</option>
           <option value="course2">Course 2</option>
-        </select>
+         </select>
         <!-- selecting due date and time -->
-        <input id="IA_due_date" type="date" placeholder="Due Date" />
-        <input id="IA_time_due" type="time" placeholder="Time Due" />
+        <input id="IA_due_date" type="date" placeholder="Due Date" class="course-details"/>
+        <input id="IA_time_due" type="time" placeholder="Time Due" class="course-details"/>
         <!-- assignment name and description -->
         <input id="IA_assignment_name" placeholder="Assignment Name" />
         <input id="IA_assignment_description" placeholder="Assignment Description" />
@@ -41,7 +48,17 @@
 
     <!-- Tab 2: Full Syllabus -->
     <div class="tab-content" id="syllabus-tab">
-
+      <!-- Selection of Document Name-->
+      <select id="FS_document_dropdown" placeholder="Select Document">
+          <!-- temporary until we figure out doc selection -->
+          <option value="">-- Select Document --</option>
+          <option value="doc1">Document 1</option>
+          <option value="doc2">Document 2</option>
+        </select>
+      
+      <!-- Copy and Pasted Syllabus content-->
+      <input id="FS_full_syllabus" placeholder="Syllabus Content" />
+      
     </div>
 
     <!-- Tab 3: Notifs -->
