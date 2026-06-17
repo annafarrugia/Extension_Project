@@ -10,14 +10,22 @@
     <div id="tab-buttons">
       <button class="tab-btn" onclick=" document.getElementById('individual-tab').style.display = 'block'; 
         document.getElementById('syllabus-tab').style.display = 'none'; 
-        document.getElementById('notifs-tab').style.display = 'none';">Individual Assignment</button>
+        document.getElementById('notifs-tab').style.display = 'none';
+        this.style.backgroundColor = 'var(--tab-color-active)';
+        document.getElementById('btn-individual').style.backgroundColor = 'var(--tab-color)';
+        document.getElementById('btn-notifs').style.backgroundColor = 'var(--tab-color)';">Individual Assignment</button>
       <button class="tab-btn" onclick=" document.getElementById('syllabus-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
-        document.getElementById('notifs-tab').style.display = 'none';">Full Syllabus</button>
+        document.getElementById('notifs-tab').style.display = 'none';
+        this.style.backgroundColor = 'var(--tab-color-active)';
+        document.getElementById('btn-syllabus').style.backgroundColor = 'var(--tab-color)';
+        document.getElementById('btn-individual').style.backgroundColor = 'var(--tab-color)';">Full Syllabus</button>
       <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
-        document.getElementById('syllabus-tab').style.display = 'none';">Notifs</button> 
-      
+        document.getElementById('syllabus-tab').style.display = 'none';
+        this.style.backgroundColor = 'var(--tab-color-active)';
+        document.getElementById('btn-syllabus').style.backgroundColor = 'var(--tab-color)';
+        document.getElementById('btn-notifs').style.backgroundColor = 'var(--tab-color)';">Notifs</button> 
     </div>
 
     <!-- Tab 1: Individual Assignment -->
