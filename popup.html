@@ -11,21 +11,24 @@
       <button class="tab-btn" onclick=" document.getElementById('individual-tab').style.display = 'block'; 
         document.getElementById('syllabus-tab').style.display = 'none'; 
         document.getElementById('notifs-tab').style.display = 'none';
-        this.style.backgroundColor = 'var(--tab-color-active)';
-        document.getElementById('btn-individual').style.backgroundColor = 'var(--tab-color)';
-        document.getElementById('btn-notifs').style.backgroundColor = 'var(--tab-color)';">Individual Assignment</button>
+
+        this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      ">Individual Assignment</button>
       <button class="tab-btn" onclick=" document.getElementById('syllabus-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
         document.getElementById('notifs-tab').style.display = 'none';
-        this.style.backgroundColor = 'var(--tab-color-active)';
-        document.getElementById('btn-syllabus').style.backgroundColor = 'var(--tab-color)';
-        document.getElementById('btn-individual').style.backgroundColor = 'var(--tab-color)';">Full Syllabus</button>
+
+        this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      ">Full Syllabus</button>
       <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
         document.getElementById('individual-tab').style.display = 'none'; 
         document.getElementById('syllabus-tab').style.display = 'none';
-        this.style.backgroundColor = 'var(--tab-color-active)';
-        document.getElementById('btn-syllabus').style.backgroundColor = 'var(--tab-color)';
-        document.getElementById('btn-notifs').style.backgroundColor = 'var(--tab-color)';">Notifs</button> 
+        
+        this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      ">Notifs</button> 
     </div>
 
     <!-- Tab 1: Individual Assignment -->
