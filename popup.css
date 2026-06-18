@@ -42,8 +42,8 @@ body {
   cursor: pointer;
 }
  
-.tab-btn:first-child {
-  background: var(--tab-color-active);
+.tab-btn.active {
+  background: var(--tab-color-active) !important;
   font-weight: 600;
 }
  
