@@ -10,11 +10,11 @@
   --submit-color: #7c93ff;
   --text: #2c2e33;
 }
- 
+
 * {
   box-sizing: border-box;
 }
- 
+
 body {
   font-family: system-ui, sans-serif;
   width: 360px;
@@ -24,7 +24,7 @@ body {
   color: var(--text);
 }
 
-/* NEW: Layout wrapper for the tab buttons + the close button */
+/* Layout wrapper for the tab buttons + the close button */
 .header-row {
   display: flex;
   justify-content: space-between;
@@ -32,13 +32,13 @@ body {
   margin-bottom: 16px;
   width: 100%;
 }
- 
+
 /* Tab row setup */
 #tab-buttons {
   display: flex;
   gap: 8px;
 }
- 
+
 .tab-btn {
   flex: 0 0 auto;
   padding: 9px 18px;
@@ -49,29 +49,29 @@ body {
   font-size: 13px;
   cursor: pointer;
 }
- 
+
 .tab-btn.active {
   background: var(--tab-color-active) !important;
   font-weight: 600;
 }
- 
+
 .tab-btn:hover {
   filter: brightness(0.95);
 }
 
-/* NEW: The 'x' close button styling */
+/* The 'x' close button styling */
 .close-icon {
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   padding-bottom: 4px;
 }
- 
+
 /* Content panel hiding logic */
 .tab-content {
   display: none;
 }
- 
+
 /* Tab 1: Individual Tab Layout (Uses Grid) */
 #individual-tab.active {
   display: grid;
@@ -82,7 +82,7 @@ body {
   padding: 22px;
 }
 
-/* NEW: Tab 2: Syllabus Tab Layout (Uses Flexbox side-by-side) */
+/* Tab 2: Syllabus Tab Layout (Uses Flexbox stacked) */
 #syllabus-tab.active {
   display: flex;
   flex-direction: column;
@@ -92,7 +92,7 @@ body {
   padding: 22px;
 }
 
-/* NEW: Container to put Document Name and Class Button side-by-side */
+/* Container to put Document Name and Class Button side-by-side */
 .top-fields {
   display: flex;
   justify-content: space-between;
@@ -100,7 +100,7 @@ body {
   width: 100%;
 }
 
-/* NEW: Sizing specifically for the components inside Tab 2 */
+/* Sizing specifically for the components inside Tab 2 */
 #FS_document_dropdown {
   width: 55%;
   padding: 10px 18px;
@@ -131,16 +131,16 @@ body {
   background: var(--field-color);
   font-size: 13px;
   text-align: center;
-  min-height: 120px; /* Makes it tall like your pink block */
+  min-height: 120px;
 }
 
-/* NEW: Container to align Add Assignment button bottom-right inside Tab 2 */
+/* Container to align Add Assignment button bottom-right inside Tab 2 */
 .submit-container {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
- 
+
 /* --- Element-specific styling for Tab 1 --- */
 #IA_document_dropdown,
 #IA_assignment_name,
@@ -148,7 +148,7 @@ body {
   grid-column: 1 / -1;
   width: 100%;
 }
- 
+
 #IA_document_dropdown {
   padding: 10px 18px;
   border: none;
@@ -158,7 +158,7 @@ body {
   font-size: 13px;
   appearance: none;
 }
- 
+
 #IA_assignment_name,
 #IA_assignment_description {
   padding: 12px 18px;
@@ -167,11 +167,11 @@ body {
   background: var(--field-color);
   font-size: 13px;
 }
- 
+
 #IA_assignment_description {
   min-height: 64px;
 }
- 
+
 #IA_course_dropdown,
 #IA_due_date,
 #IA_time_due {
@@ -183,16 +183,16 @@ body {
   font-size: 13px;
   appearance: none;
 }
- 
+
 #IA_course_dropdown,
 #IA_time_due {
   background: var(--dropdown-color);
 }
- 
+
 #IA_due_date {
   background: var(--tab-color);
 }
- 
+
 /* Shareable or standalone Submit Button rules */
 #IA_submit_btn {
   grid-column: 1 / -1;
@@ -205,90 +205,69 @@ body {
   font-size: 13px;
   cursor: pointer;
 }
- 
+
 #IA_submit_btn:hover {
   filter: brightness(1.08);
 }
 
-/* Container */
-.tab-content {
-  background-color: #fff;
-  width: 340px;
-  padding: 24px 28px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Tabs row (Individual Assignment / Full Syllabus / Notifs) */
-.tab-bar {
+/* ============================= */
+/* Tab 3: Notifs Tab Layout      */
+/* ============================= */
+#notifs-tab.active {
   display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--panel-bg);
+  border-radius: var(--radius-panel);
+  padding: 22px;
 }
 
-.tab-button {
-  background-color: #c9ccf5;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 18px;
-  font-size: 14px;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+/* Label text above each toggle (Email Notifications, etc.) */
+#notifs-tab p {
+  margin: 14px 0 8px 0;
+  font-size: 13px;
+  color: var(--text);
 }
 
-.tab-button:hover {
-  background-color: #b8bcf0;
-}
-
-.tab-button.active {
-  background-color: #8a8fdb;
-  color: #1a1a1a;
-  font-weight: 600;
-}
-
-/* Section labels (Email Notifications, etc.) */
-.tab-content p {
-  font-size: 16px;
-  color: #333;
-  margin: 18px 0 8px 0;
-}
-
-.tab-content p:first-of-type {
+#notifs-tab p:first-of-type {
   margin-top: 0;
 }
 
-/* Checkboxes */
-.tab-content input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid #999;
-  border-radius: 4px;
+/* Toggle switches, styled consistently with the pill language elsewhere */
+#notifs-tab input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  background-color: #fff;
-  cursor: pointer;
+  width: 42px;
+  height: 24px;
+  border-radius: var(--radius-pill);
+  background: var(--tab-color);
   position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s ease;
 }
 
-.tab-content input[type="checkbox"]:checked {
-  background-color: #8a8fdb;
-  border-color: #8a8fdb;
-}
-
-.tab-content input[type="checkbox"]:checked::after {
+#notifs-tab input[type="checkbox"]::before {
   content: "";
   position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 9px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-.tab-content input[type="checkbox"]:hover {
-  border-color: #8a8fdb;
+#notifs-tab input[type="checkbox"]:checked {
+  background: var(--submit-color);
+}
+
+#notifs-tab input[type="checkbox"]:checked::before {
+  transform: translateX(18px);
+}
+
+#notifs-tab input[type="checkbox"]:hover {
+  filter: brightness(0.97);
 }
