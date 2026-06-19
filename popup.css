@@ -24,7 +24,7 @@ body {
   color: var(--text);
 }
 
-/* Layout wrapper for the tab buttons + the close button */
+/* NEW: Layout wrapper for the tab buttons + the close button */
 .header-row {
   display: flex;
   justify-content: space-between;
@@ -32,7 +32,7 @@ body {
   margin-bottom: 16px;
   width: 100%;
 }
-
+ 
 /* Tab row setup */
 #tab-buttons {
   display: flex;
@@ -58,22 +58,13 @@ body {
 .tab-btn:hover {
   filter: brightness(0.95);
 }
-
-/* The 'x' close button styling */
-.close-icon {
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  padding-bottom: 4px;
-}
-
-/* Content panel hiding logic */
+ 
+/* Content panel, one per tab */
 .tab-content {
   display: none;
 }
-
-/* Tab 1: Individual Tab Layout (Uses Grid) */
-#individual-tab.active {
+ 
+.tab-content.active {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--gap);
@@ -81,67 +72,8 @@ body {
   border-radius: var(--radius-panel);
   padding: 22px;
 }
-
-/* Tab 2: Syllabus Tab Layout (Uses Flexbox stacked) */
-#syllabus-tab.active {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap);
-  background: var(--panel-bg);
-  border-radius: var(--radius-panel);
-  padding: 22px;
-}
-
-/* Container to put Document Name and Class Button side-by-side */
-.top-fields {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--gap);
-  width: 100%;
-}
-
-/* Sizing specifically for the components inside Tab 2 */
-#FS_document_dropdown {
-  width: 55%;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 14px;
-  background: var(--dropdown-color);
-  text-align: center;
-  font-size: 13px;
-  appearance: none;
-}
-
-#FS_course_dropdown {
-  width: 40%;
-  padding: 10px 18px;
-  border: none;
-  border-radius: var(--radius-pill);
-  background: var(--dropdown-color);
-  text-align: center;
-  font-size: 13px;
-  appearance: none;
-}
-
-#FS_full_syllabus {
-  width: 100%;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 14px;
-  background: var(--field-color);
-  font-size: 13px;
-  text-align: center;
-  min-height: 120px;
-}
-
-/* Container to align Add Assignment button bottom-right inside Tab 2 */
-.submit-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-/* --- Element-specific styling for Tab 1 --- */
+ 
+/* Full-width rows: document dropdown, name, description, submit row */
 #IA_document_dropdown,
 #IA_assignment_name,
 #IA_assignment_description {
@@ -171,7 +103,8 @@ body {
 #IA_assignment_description {
   min-height: 64px;
 }
-
+ 
+/* Course / date / time row: each pill sits at the start of its own third */
 #IA_course_dropdown,
 #IA_due_date,
 #IA_time_due {
@@ -192,8 +125,8 @@ body {
 #IA_due_date {
   background: var(--tab-color);
 }
-
-/* Shareable or standalone Submit Button rules */
+ 
+/* Submit button, bottom right */
 #IA_submit_btn {
   grid-column: 1 / -1;
   justify-self: end;
