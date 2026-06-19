@@ -209,3 +209,86 @@ body {
 #IA_submit_btn:hover {
   filter: brightness(1.08);
 }
+
+/* Container */
+.tab-content {
+  background-color: #fff;
+  width: 340px;
+  padding: 24px 28px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabs row (Individual Assignment / Full Syllabus / Notifs) */
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  background-color: #c9ccf5;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.tab-button:hover {
+  background-color: #b8bcf0;
+}
+
+.tab-button.active {
+  background-color: #8a8fdb;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Section labels (Email Notifications, etc.) */
+.tab-content p {
+  font-size: 16px;
+  color: #333;
+  margin: 18px 0 8px 0;
+}
+
+.tab-content p:first-of-type {
+  margin-top: 0;
+}
+
+/* Checkboxes */
+.tab-content input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #999;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-content input[type="checkbox"]:checked {
+  background-color: #8a8fdb;
+  border-color: #8a8fdb;
+}
+
+.tab-content input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.tab-content input[type="checkbox"]:hover {
+  border-color: #8a8fdb;
+}
