@@ -271,3 +271,80 @@ body {
 #notifs-tab input[type="checkbox"]:hover {
   filter: brightness(0.97);
 }
+
+/* New Tracker in Individual Assignmnet Document Dropdown */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(44, 46, 51, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  width: 260px;
+  background: var(--panel-bg);
+  border-radius: var(--radius-panel);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.modal-box h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+#newDocNameInput {
+  width: 100%;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 14px;
+  background: var(--field-color);
+  font-size: 13px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+#newDocCreateBtn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--submit-color);
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#newDocCreateBtn:hover {
+  filter: brightness(1.08);
+}
+
+#newDocCancelBtn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--tab-color);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#newDocCancelBtn:hover {
+  filter: brightness(0.95);
+}
