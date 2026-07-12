@@ -9,37 +9,19 @@
     <!-- Tab Buttons -->
     <div id="tab-buttons">
       <!-- When Individual Assignment is clicked, hides full syllabus and notifications tabs -->
-      <button class="tab-btn" onclick=" document.getElementById('individual-tab').style.display = 'block'; 
-        document.getElementById('syllabus-tab').style.display = 'none'; 
-        document.getElementById('notifs-tab').style.display = 'none';
-
-        this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      ">Individual Assignment</button>
-      <button class="tab-btn" onclick=" document.getElementById('syllabus-tab').style.display = 'block'; 
-        document.getElementById('individual-tab').style.display = 'none'; 
-        document.getElementById('notifs-tab').style.display = 'none';
-
-        this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      ">Full Syllabus</button>
-      <button class="tab-btn" onclick=" document.getElementById('notifs-tab').style.display = 'block'; 
-        document.getElementById('individual-tab').style.display = 'none'; 
-        document.getElementById('syllabus-tab').style.display = 'none';
-        
-        this.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
-      ">Notifs</button> 
+      <button class="tab-btn" data-tab="individual-tab">Individual Assignment</button>
+      <button class="tab-btn" data-tab="syllabus-tab">Full Syllabus</button>
+      <button class="tab-btn" data-tab="notifs-tab">Notifs</button> 
     </div>
 
     <!-- Tab 1: Individual Assignment -->
     <div class="tab-content" id="individual-tab">
         <!-- individual assignment content -->
 
-        <select id="IA_document_dropdown" placeholder="Select Document" class= "document-selection">
+        <select id="IA_document_dropdown" placeholder="Select Document" class= "document-selection" >
           <!-- temporary until we figure out doc selection -->
           <option value="">-- Select Document --</option>
-          <option value="doc1">Document 1</option>
+          <option value="Create new Document">Create new Document</option>
           <option value="doc2">Document 2</option>
         </select>
         <!-- selecting course-->
@@ -55,7 +37,19 @@
         <input id="IA_assignment_name" placeholder="Assignment Name" />
         <input id="IA_assignment_description" placeholder="Assignment Description" />
         <!-- submit button -->
-        <button id="IA_submit_btn">Add Assignment</button>
+        <button id="IA_submit_btn" >Add Assignment</button>
+    </div>
+    
+    <!-- New Assignment Tracker in Individual Assignments -->
+    <div id="newAssignmentPopup" class="modal-overlay" style="display:none;">
+      <div class="modal-box">
+        <h3>Create New Document</h3>
+        <input id="newDocNameInput" type="text" placeholder="Document name" />
+        <div class="modal-actions">
+          <button id="newDocCreateBtn" >Create</button>
+          <button id="newDocCancelBtn" >Cancel</button>
+        </div>
+      </div>
     </div>
 
     <!-- Tab 2: Full Syllabus -->
@@ -73,7 +67,7 @@
       
       <!-- Submit button -->
       <div class="submit-container"> </div>
-      <button id="IA_submit_btn">Add Assignment</button>
+      <button id="FS_submit_btn">Add Assignment</button>
     </div>
 
     <!-- Tab 3: Notifs -->
@@ -88,7 +82,7 @@
 
       <!-- 30 min Before Due-Date Popup Notifs-->
       <p>30 min Before Due-Date Popup</p>
-      <input id="30min_toggle" type="checkbox" />
+      <input id="min30_toggle" type="checkbox" />
 
       <!-- Exam Notifs-->
       <p>Exam Notifications</p>

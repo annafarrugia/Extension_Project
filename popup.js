@@ -47,3 +47,11 @@ function initFormSubmission() {
         });
     }
 }
+
+function handleDocumentSelection() {
+    const selectedDocument = document.getElementById('IA_document_dropdown').value;
+    //Checks if the user picked the Create new Doc option
+    if (selectedDocument === "Create new Document") {
+        document.getElementById('NewAssignmentPopup').style.display = 'flex';
+    }
+}
