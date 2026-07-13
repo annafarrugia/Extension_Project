@@ -8,8 +8,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Popup loaded');
 
+
+    // using the submit button to test OAuth rn
+    const submitBtn = document.getElementById('IA_submit_btn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            console.log('Submit button clicked, testing OAuth...');
+            testOAuth();
+        });
+    }
+
     //initialization functions:
     handleTabSelection();
+    //initFormSubmission();
 
 });
 
@@ -82,3 +94,18 @@ function handleDocumentSelection() {
 }
 
 
+function testOAuth() {
+  console.log("Attempting to fetch OAuth token...");
+  
+  // 'interactive: true' makes the google login prompt pop up
+  chrome.identity.getAuthToken({ interactive: true }, function(token) {
+    if (chrome.runtime.lastError) {
+      // error message
+      console.error("OAuth Failed:", chrome.runtime.lastError.message);
+      return;
+    }
+    
+    // IF THIS PRINTS OAUTH WORKS
+    console.log("OAuth Success! Your access token is:", token);
+  });
+}
