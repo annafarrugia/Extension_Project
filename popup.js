@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+
 /*
  * Individual Assignment form submission handling
  * TODO: connect object created to content script to send data to google sheets
