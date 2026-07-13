@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Popup loaded');
 
     //initialization functions:
-    initFormSubmission();
+    handleTabSelection();
 
 });
 
@@ -48,6 +48,31 @@ function initFormSubmission() {
     }
 }
 
+
+/* Handles the Selection of each Tab and makes every tab visible when clicked
+*/
+function handleTabSelection() {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabIds = ['individual-tab', 'syllabus-tab', 'notifs-tab'];
+
+        tabButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                tabIds.forEach(function(id) {
+                    document.getElementById(id).style.display = 'none';
+                });
+                const targetId = button.getAttribute('data-tab');
+                document.getElementById(targetId).style.display = 'block';
+                tabButtons.forEach(function(button) {
+                    button.classList.remove('active');
+                });
+                button.classList.add('active');
+            });
+        });
+    }
+
+/* Selection of Document from Google sheets API
+* TODO : Implement the logic for selecting a document from Google Sheets
+*/
 function handleDocumentSelection() {
     const selectedDocument = document.getElementById('IA_document_dropdown').value;
     //Checks if the user picked the Create new Doc option
@@ -55,3 +80,5 @@ function handleDocumentSelection() {
         document.getElementById('NewAssignmentPopup').style.display = 'flex';
     }
 }
+
+
