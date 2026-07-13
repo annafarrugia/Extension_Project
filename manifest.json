@@ -3,6 +3,7 @@
     "name": "Assignment Tracker Extension",
     "version": "1.0",
     "description": "A Chrome extension to input and track assignments in google sheets tracker",
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0XHAgENcvoDAbEffuUwSiOK9DKk5Qn6spIhGXdXGsCBb6r7BTKbHaMb91gJFn/YITD/NyBDrRRNXaU3///vvsK4pQkCoVcwFmTu0vSVuQww+pSRVBmIpHs8+pObMkwBVs9yeIOPmzbvrNoGDAUwAliYFm3WjEfH1p7KPtaqKWSAIaFfZ4h0K9JHcmIUAX2yqHZ8/GvTzENGlAgGGnMc47FhQowFclBN2juZlDVM48x/A+XpEMqMnbIm9r1XhRkyebC/McoNaQz4GQ+yz18rFe7JGJ7u7GpHZYDRQL4VBuyN9Cf+aqyc0Ee3HMcL++tH/GUzG6ipGL6PI9fwLDz7ZpQIDAQAB",
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
