@@ -98,7 +98,7 @@ function testOAuth() {
   console.log("Attempting to fetch OAuth token...");
   
   // 'interactive: true' makes the google login prompt pop up
-  chrome.identity.getAuthToken({ interactive: true }, function(token) {
+  chrome.identity.getAuthToken({ interactive: true }, async function(token) {
     if (chrome.runtime.lastError) {
       // error message
       console.error("OAuth Failed:", chrome.runtime.lastError.message);
@@ -107,5 +107,80 @@ function testOAuth() {
     
     // IF THIS PRINTS OAUTH WORKS
     console.log("OAuth Success! Your access token is:", token);
+
+    /*TEMPORARY */
+    fetch("https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + token)
+      .then(response => response.json())
+      .then(data => console.log("Token info:", data));
+
+    const folderId = await getOrCreateFolder(token);
+    console.log("Using folder ID:", folderId);
   });
+}
+
+
+/* Creating a new folder in Google Drive for the new Google sheets Documents and also checking if it exists */
+async function getOrCreateFolder(token) {
+  const stored = await chrome.storage.local.get("driveFolderId");
+
+  if (stored.driveFolderId) {
+    const stillExists = await verifyFolderExists(
+      stored.driveFolderId,
+      token
+    );
+
+    if (stillExists) {
+      console.log("Reusing existing folder:", stored.driveFolderId);
+      return stored.driveFolderId;
+    }
+  }
+
+  const folderId = await createDriveFolder(token);
+
+  await chrome.storage.local.set({
+    driveFolderId: folderId
+  });
+
+  console.log("Created new folder:", folderId);
+
+  return folderId;
+}
+
+/*Logs the response from the GD API and returns folder ID if it exists */
+async function createDriveFolder(token) {
+  const response = await fetch(
+    "https://www.googleapis.com/drive/v3/files",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: "MyExtension Documents",
+        mimeType: "application/vnd.google-apps.folder"
+      })
+    }
+  );
+
+  const text = await response.text();
+
+  console.log("Status:", response.status);
+  console.log("Raw response:", text);
+
+  if (!response.ok) {
+    throw new Error(text);
+  }
+
+  return JSON.parse(text).id;
+}
+
+async function verifyFolderExists(folderId, token) {
+  const response = await fetch(
+    `https://www.googleapis.com/drive/v3/files/${folderId}?fields=id,trashed`,
+    { headers: { 'Authorization': `Bearer ${token}` } }
+  );
+  if (!response.ok) return false; // 404 = deleted or inaccessible
+  const data = await response.json();
+  return !data.trashed;
 }
