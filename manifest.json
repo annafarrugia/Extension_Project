@@ -15,6 +15,9 @@
         "alarms",
         "identity"
      ],
+     "host_permissions": [
+        "https://www.googleapis.com/*"
+     ],
      "oauth2" : {
         "client_id": "266436359923-mpajiar5c21901qkooh96p81nbe50urc.apps.googleusercontent.com",
         "scopes": [
