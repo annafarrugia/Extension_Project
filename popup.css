@@ -131,8 +131,9 @@ body {
   border-radius: 14px;
   background: var(--field-color);
   font-size: 13px;
-  text-align: center;
+  text-align: left;
   min-height: 120px;
+  resize: vertical;
 }
 
 /* Container to align Add Assignment button bottom-right inside Tab 2 */
@@ -175,7 +176,8 @@ body {
 
 #IA_course_dropdown,
 #IA_due_date,
-#IA_time_due {
+#IA_time_due,
+#IA_type_dropdown {
   justify-self: start;
   width: auto;
   padding: 9px 16px;
@@ -192,6 +194,10 @@ body {
 
 #IA_due_date {
   background: var(--tab-color);
+}
+
+#IA_type_dropdown {
+  background: var(--dropdown-color);
 }
 
 /* Shareable or standalone Submit Button rules */

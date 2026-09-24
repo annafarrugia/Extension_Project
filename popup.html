@@ -9,9 +9,9 @@
     <!-- Tab Buttons -->
     <div id="tab-buttons">
       <!-- When Individual Assignment is clicked, hides full syllabus and notifications tabs -->
-      <button class="tab-btn" data-tab="individual-tab">Individual Assignment</button>
-      <button class="tab-btn" data-tab="syllabus-tab">Full Syllabus</button>
-      <button class="tab-btn" data-tab="notifs-tab">Notifs</button> 
+      <button class="tab-btn active" data-tab="individual-tab">Individual Assignment</button>
+      <button class="tab-btn active" data-tab="syllabus-tab">Full Syllabus</button>
+      <button class="tab-btn active" data-tab="notifs-tab">Notifs</button> 
     </div>
 
     <!-- Tab 1: Individual Assignment -->
@@ -38,6 +38,11 @@
         <input id="IA_assignment_description" placeholder="Assignment Description" />
         <!-- submit button -->
         <button id="IA_submit_btn" >Add Assignment</button>
+        <!-- Selecting if something is an exam-->
+         <select id=" "IA_type_dropdown" class = "course-details">
+            <option value = "Assignment"> Assignment</option>
+            <option value = "Exam">Exam</option>
+          </select>
     </div>
     
     <!-- New Assignment Tracker in Individual Assignments -->
@@ -63,7 +68,7 @@
         </select>
       
       <!-- Copy and Pasted Syllabus content-->
-      <input id="FS_full_syllabus" placeholder="Syllabus Content" />
+      <textarea id="FS_full_syllabus" placeholder="Put Syllabus Content Here"></textarea>
       
       <!-- Submit button -->
       <div class="submit-container"> </div>

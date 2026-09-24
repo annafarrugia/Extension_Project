@@ -5,6 +5,8 @@
  * Author: Anna Farrugia and Sophie Castet-Bellocq
  */
 
+const SHEET_HEADERS = ['Due Date', 'Due Time','Class','Type','Assignment'];
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Popup loaded');
 
@@ -42,15 +44,17 @@ function initFormSubmission() {
             const time = document.getElementById('IA_time_due').value;
             const assignmentTitle = document.getElementById('IA_assignment_name').value;
             const assignmentDescription = document.getElementById('IA_assignment_description').value;
+            const assignmentType = document.getElementById('IA_type_dropdown').value;
 
             //creating the assignment object
             const assignmentData = {
-                documentName,
+                documentName, 
                 course,
                 date,
                 time,
                 assignmentTitle,
-                assignmentDescription
+                assignmentDescription,
+                assignmentType
             };
             console.log('Submitting assignment data:', assignmentData);
 
@@ -65,20 +69,13 @@ function initFormSubmission() {
 */
 function handleTabSelection() {
         const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabIds = ['individual-tab', 'syllabus-tab', 'notifs-tab'];
+        const tabContents = document.querySelectorAll('.tab-content');
 
-        tabButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                tabIds.forEach(function(id) {
-                    document.getElementById(id).style.display = 'none';
-                });
-                const targetId = button.getAttribute('data-tab');
-                document.getElementById(targetId).style.display = 'block';
-                tabButtons.forEach(function(button) {
-                    button.classList.remove('active');
-                });
-                button.classList.add('active');
-            });
+        tabButtons.forEach(function(button) { 
+          button.addEventListener('click ', function() { 
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          });
         });
     }
 
