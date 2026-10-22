@@ -1,5 +1,5 @@
 # Extension_Project
-A chrome extension that lets students add assignments and exams intoa google sheet directly from a popup, and get desktop reminders before they're due.
+A chrome extension that lets students add assignments and exams into a google sheet directly from a popup, and get desktop reminders before they're due.
 
 Authors: Sophie Castet-Bellocq and Anna Farrugia
 
@@ -7,7 +7,7 @@ Authors: Sophie Castet-Bellocq and Anna Farrugia
     - Signs in with Google (OAuth 2.0) and creates a dedicated Drive folder for the user's tracker documents
     - Creates new tracker spreadsheets by copying a pre-built template, so every document starts with consistent formatting and formulas
     - Lets the user pick a tracker document and add courses scoped to that specific document
-    - WRites new assignments/exams directly into the correct Google Sheet row through the Sheets API
+    - Writes new assignments/exams directly into the correct Google Sheet row through the Sheets API
     - Schedules desktop notifications ahead of due dates, with reminder types that the user picks
 
 # What types of Tech used
@@ -23,7 +23,7 @@ Authors: Sophie Castet-Bellocq and Anna Farrugia
         - Our thought process was that it would keep formulas and conditional formatting and layout consistent across everyone's document without have to do it all in JavaScript
     - Row targeting instead of using the Sheets API. We started with appending rows with the Sheets API's built in append operator but it produced incosistent results. We think the pre-applied formatting and checkbox validation further down the template caused the API to not understand where the real data was ending. 
         - We decided to just manually find the last populated row in a reliable column and then write to that exact row which made the row placement predictable no matter what
-    - We chose to scope courses to specific spreadsheets that they belong to (using the sheet ID key) and notification preferences persisting across popoup sessions. This is so we don't need a backend server
+    - We chose to scope courses to specific spreadsheets that they belong to (using the sheet ID key) and notification preferences persisting across popup sessions. This is so we don't need a backend server
 
 # File Structures
     manifest.json : Extension permissions, Oauth scopes, and icons
@@ -44,7 +44,7 @@ Authors: Sophie Castet-Bellocq and Anna Farrugia
     4. Add the client ID to manifest.json under oauth2.client_id
 
 # Limitations
-    - There is no retry logic for expired kOAuth token mid-session
+    - There is no retry logic for expired OAuth token mid-session
     - No handling for a tracker document deleted after being selected
     - Course lists and settings are stored locally per browser, not synced across devices
     - The "Full Syllabus" tab isn't built yet
@@ -52,6 +52,6 @@ Authors: Sophie Castet-Bellocq and Anna Farrugia
 # Possible Next Steps
     - Sync notifs setting to chrome.storage.sync so they follow the user across different devices
     - Add retry/refresh handling around expired OAuth tokens
-    - Build out the FUll Syllabus tab for bulk assignment entry
+    - Build out the Full Syllabus tab for bulk assignment entry
     -Add automated tests around the row-calculation logic in appendAssignmnet
-    -When we feel like we don't wnat to add anything else we pay actually publish this popup to the Chrome Store
+    -When we feel like we don't wnat to add anything else we may actually publish this popup to the Chrome Store
