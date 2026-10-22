@@ -1,3 +1,4 @@
+/*shared design tokens used across the entire popup*/
 :root {
   --gap: 14px;
   --radius-pill: 999px;
@@ -11,14 +12,19 @@
   --text: #2c2e33;
 }
 
+/*border counted inside width*/
 * {
   box-sizing: border-box;
 }
-
+/*chromse extension popups have a fixed size*/
 body {
   font-family: system-ui, sans-serif;
   width: 400px;
-  height: 600px;
+  max-height: 600px;
+  /*hides anything that overflows sideways*/
+  overflow-x: hidden;
+  /*lets content scroll instead of getting cut off*/
+  overflow-y: auto;
   margin: 0;
   padding: 18px;
   background: #fff;
@@ -50,7 +56,7 @@ body {
   font-size: 13px;
   cursor: pointer;
 }
-
+/*highlights the button that is selected*/
 .tab-btn.active {
   background: var(--tab-color-active) !important;
   font-weight: 600;
@@ -73,17 +79,19 @@ body {
   display: none;
 }
 
-/* Tab 1: Individual Tab Layout (Uses Grid) */
+/* individual assignment tab
+3 column grid which is only visible when .active */
 #individual-tab.active {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--gap);
+  gap: var(--gap); /*14px*/
   background: var(--panel-bg);
   border-radius: var(--radius-panel);
   padding: 22px;
 }
 
-/* Tab 2: Syllabus Tab Layout (Uses Flexbox stacked) */
+/* Syllabus tab
+Stacked layout */
 #syllabus-tab.active {
   display: flex;
   flex-direction: column;
@@ -147,7 +155,7 @@ body {
 #IA_document_dropdown,
 #IA_assignment_name,
 #IA_assignment_description {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /*spans all 3 grid columns*/
   width: 100%;
 }
 
@@ -173,13 +181,13 @@ body {
 #IA_assignment_description {
   min-height: 64px;
 }
-
+/*individual assignment tab to make course, due date, and type right next
+to each other*/
 #IA_course_dropdown,
 #IA_due_date,
-#IA_time_due,
 #IA_type_dropdown {
   justify-self: start;
-  width: auto;
+  width: 100%;
   padding: 9px 16px;
   border: none;
   border-radius: var(--radius-pill);
@@ -187,8 +195,7 @@ body {
   appearance: none;
 }
 
-#IA_course_dropdown,
-#IA_time_due {
+#IA_course_dropdown {
   background: var(--dropdown-color);
 }
 
@@ -217,9 +224,7 @@ body {
   filter: brightness(1.08);
 }
 
-/* ============================= */
 /* Tab 3: Notifs Tab Layout      */
-/* ============================= */
 #notifs-tab.active {
   display: flex;
   flex-direction: column;
@@ -242,18 +247,19 @@ body {
 
 /* Toggle switches, styled consistently with the pill language elsewhere */
 #notifs-tab input[type="checkbox"] {
-  appearance: none;
+  appearance: none;     /*removes theh native checkbox look entirely*/
   -webkit-appearance: none;
   width: 42px;
   height: 24px;
   border-radius: var(--radius-pill);
-  background: var(--tab-color);
+  background: var(--tab-color);   /*the offwhite gray look*/
   position: relative;
   cursor: pointer;
   outline: none;
   transition: background 0.2s ease;
 }
 
+/*the round white knob inside the toggle*/
 #notifs-tab input[type="checkbox"]::before {
   content: "";
   position: absolute;
@@ -263,10 +269,11 @@ body {
   height: 18px;
   border-radius: 50%;
   background: #fff;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease;    /**/
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
+/*fill color and the knob slides to the right*/
 #notifs-tab input[type="checkbox"]:checked {
   background: var(--submit-color);
 }
@@ -290,7 +297,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1000;    /*goes above everything in the document*/
 }
 
 .modal-box {
