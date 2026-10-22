@@ -22,27 +22,24 @@
           <!-- temporary until we figure out doc selection -->
           <option value="">-- Select Document --</option>
           <option value="Create new Document">Create new Document</option>
-          <option value="doc2">Document 2</option>
         </select>
         <!-- selecting course-->
          <select id="IA_course_dropdown" placeholder="Select Course" class="course-details">
           <option value="">-- Select Course --</option>
-          <option value="course1">Course 1</option>
-          <option value="course2">Course 2</option>
+          <option value="__new__">+ Add New Course</option>
          </select>
         <!-- selecting due date and time -->
         <input id="IA_due_date" type="date" placeholder="Due Date" class="course-details"/>
-        <input id="IA_time_due" type="time" placeholder="Time Due" class="course-details"/>
+        <!-- Selecting if something is an exam-->
+         <select id="IA_type_dropdown" class = "course-details">
+            <option value = "Assignment"> Assignment</option>
+            <option value = "Exam">Exam</option>
+          </select>
         <!-- assignment name and description -->
         <input id="IA_assignment_name" placeholder="Assignment Name" />
         <input id="IA_assignment_description" placeholder="Assignment Description" />
         <!-- submit button -->
         <button id="IA_submit_btn" >Add Assignment</button>
-        <!-- Selecting if something is an exam-->
-         <select id=" "IA_type_dropdown" class = "course-details">
-            <option value = "Assignment"> Assignment</option>
-            <option value = "Exam">Exam</option>
-          </select>
     </div>
     
     <!-- New Assignment Tracker in Individual Assignments -->
@@ -77,10 +74,6 @@
 
     <!-- Tab 3: Notifs -->
     <div class="tab-content" id="notifs-tab">
-      <!-- Email Notifs-->
-      <p>Email Notifications</p>
-      <input id="notif_toggle" type="checkbox" />
-
       <!-- Popup Notifs-->
       <p>Computer Popup Notifs</p>
       <input id="popup_toggle" type="checkbox" />
